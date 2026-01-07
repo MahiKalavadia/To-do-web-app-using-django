@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <div class="card shadow-lg p-4" style="width: 28rem; border-radius: 14px;">
+
+    <h3 class="text-center mb-4 fw-bold">Register</h3>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-success">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+
+    <form method="POST">
+      {% csrf_token %}
+
+      <!-- Username -->
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input
+          type="text"
+          name="username"
+          class="form-control {% if form.username.errors %}is-invalid{% endif %}"
+          placeholder="Enter username"
+          value="{{ form.username.value }}"
+          required
+        >
+        {% for error in form.username.errors %}
+          <div class="invalid-feedback">
+            {{ error }}
+          </div>
+        {% endfor %}
+      </div>
+
+
+      <!-- Password -->
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input
+          type="password"
+          name="password1"
+          class="form-control {% if form.password1.errors %}is-invalid{% endif %}"
+          placeholder="Enter password"
+          required
+        >
+        {% for error in form.password1.errors %}
+          <div class="invalid-feedback">
+            {{ error }}
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="mb-3">
+        <label class="form-label">Confirm Password</label>
+        <input
+          type="password"
+          name="password2"
+          class="form-control {% if form.password2.errors %}is-invalid{% endif %}"
+          placeholder="Confirm password"
+          required
+        >
+        {% for error in form.password2.errors %}
+          <div class="invalid-feedback">
+            {{ error }}
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- Submit -->
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary btn-lg">
+          Sign Up
+        </button>
+      </div>
+    </form>
+
+    <p class="text-center mt-4 mb-0">
+      Already have an account?
+      <a href="{% url 'login' %}" class="fw-bold text-decoration-none">
+        Sign In
+      </a>
+    </p>
+
+  </div>
+</div>
+{% endblock content %}

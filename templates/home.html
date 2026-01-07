@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Home | To-Do App</title>
+
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+   <style>
+      body {
+         background: linear-gradient(135deg, #f8f9fa, #eef2ff);
+      }
+
+      .hero-text {
+         max-width: 500px;
+      }
+
+      .card {
+         border: none;
+         transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .card:hover {
+         transform: translateY(-6px);
+         box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      }
+   </style>
+</head>
+
+<body>
+
+   <div class="container vh-100 d-flex align-items-center">
+      <div class="row w-100 align-items-center">
+
+         <!-- LEFT TEXT -->
+         <div class="col-md-6 text-center text-md-start mb-4 mb-md-0 hero-text">
+            <h1 class="fw-light mb-3">
+               Welcome to your
+               <span class="fw-bold">To-Do App</span>
+            </h1>
+
+            <p class="fs-5 text-muted">
+               Organize tasks, track progress, and stay productive every day.
+            </p>
+         </div>
+
+         <!-- RIGHT CARD -->
+         <div class="col-md-6 d-flex justify-content-center">
+            <div class="card text-center shadow-lg px-5 py-5"
+                 style="width: 30rem; border-radius: 16px;">
+
+               <div class="card-body">
+                  <h2 class="card-title fw-bold mb-3">To-Do App</h2>
+
+                  <p class="card-text fs-5 text-muted mb-4">
+                     List your tasks with us.
+                  </p>
+
+                  <div class="d-grid gap-3">
+                     <a href="{% url 'login' %}" class="btn btn-primary btn-lg">
+                        Login
+                     </a>
+                     <a href="{% url 'register' %}" class="btn btn-outline-primary btn-lg">
+                        Register
+                     </a>
+                  </div>
+               </div>
+
+            </div>
+         </div>
+
+      </div>
+   </div>
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

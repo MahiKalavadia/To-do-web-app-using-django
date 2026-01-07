@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Profile | To-Do App</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+
+      <div class="card shadow-sm">
+        <div class="card-body ">
+
+          <h2 class="mb-4">Your Profile</h2>
+          <div class="row align-items-center">
+
+          <!-- Profile Image -->
+           <div class="col-md-4 text-center">
+          <img src="{{ request.user.profile.image.url }}"
+               alt="Profile Picture"
+               class="rounded-circle mb-3"
+               width="180"
+               height="180">
+           </div>
+          <!-- Profile Info -->
+           <div class="col-md-8">
+          <p><strong>Username:</strong> {{ request.user.username }}</p>
+          <p><strong>Email:</strong> {{ request.user.email }}</p>
+          {% if request.user.first_name %}
+             <p><strong>Name:</strong> {{ request.user.first_name }}</p>
+          {% endif %}
+          {% if request.user.last_name %}
+             <p><strong>Surname:</strong> {{ request.user.last_name }}</p>
+          {% endif %}
+          {% if request.user.mobile_number %}
+             <p><strong>Mobile number:</strong> {{ request.user.mobile_number }}</p>
+          {% endif %}
+          {% if request.user.profile.bio %}
+            <p><strong>Bio:</strong> {{ request.user.profile.bio }}</p>
+          {% endif %}
+           </div>
+          <!-- Buttons -->
+          <div class="d-flex justify-content-between mt-4">
+            <a href="{% url 'dashboard' %}" class="btn btn-secondary">
+              ← Back to Dashboard
+            </a>
+
+            <a href="{% url 'edit_profile' %}" class="btn btn-primary">
+              Edit Profile
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
