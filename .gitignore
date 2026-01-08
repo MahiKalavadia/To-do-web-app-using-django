@@ -2,22 +2,18 @@
 venv/
 env/
 
-# Environment variables
-.env
-.env.*
-
-# Django
+# Python cache
 __pycache__/
 *.pyc
+
+# Database
 db.sqlite3
 
-# Media & static
+# Media uploads
 media/
-staticfiles/
 
-# IDE
-.vscode/
-.idea/
+# Environment variables
+.env
 
 # OS
 .DS_Store
