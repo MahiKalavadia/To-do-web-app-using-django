@@ -124,7 +124,7 @@ http://127.0.0.1:8000/
 
 # Tech Stack
 
-* Frontend : HTML , CSS , Bootstrap 5 (for responsive UI )
+* Frontend : HTML , CSS , Bootstrap 5 (for responsive UI ), Javascript
 * Backend : Python
 * Framework : Django
 * Database : SQLite, Django ORM 
