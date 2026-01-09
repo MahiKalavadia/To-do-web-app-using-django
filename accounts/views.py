@@ -118,6 +118,20 @@ def dashboard_view(request):
 
 
 @login_required
+def set_theme(request, theme):
+    response = redirect(request.META.get('HTTP_REFERER', '/'))
+    
+    if theme in ['light','dark']:
+        response.set_cookie(
+            key='theme',
+            value=theme,
+            max_age = 60 * 60 * 24 * 30,  # 30 days
+            samesite='Lax'
+        )
+    return response
+        
+
+@login_required
 def profile_view(request):
     if request.method == 'POST':
         form = ProfileForm(

@@ -12,8 +12,8 @@
 
 </head>
 
-
-<body style="background: linear-gradient(135deg, #f8f9fa, #eef2ff);">
+{% with request.COOKIES.theme|default:"light" as theme %}
+<body class={% if theme == 'dark' %}bg-dark text-white{% else %}bg-light text-dark{% endif %} >{% endwith%}
 {% if request.user.is_authenticated %}
 <nav class="navbar navbar-dark bg-dark shadow-sm">
   <div class="container-fluid">
@@ -31,6 +31,14 @@
         <img src="{{ user.profile.image.url }}" alt="Profile" class="rounded-circle" width="40" height="40">
       </a>
       <a href="{% url 'dashboard' %}" class="btn btn-outline-light me-2">Dashboard</a>
+      <div class="d-flex align-items-center gap-2">
+      <a href="{% url 'set_theme' 'light' %}" class="btn btn-sm btn-outline-secondary">
+        ☀️
+      </a>
+      <a href="{% url 'set_theme' 'dark' %}" class="btn btn-sm btn-outline-secondary">
+        🌙
+      </a>
+</div>
 
 
 
